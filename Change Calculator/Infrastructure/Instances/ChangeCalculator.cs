@@ -93,7 +93,12 @@ namespace ChangeCalculator.Infrastructure.Instances
             decimal closest = currencyAmounts.Aggregate((x, y) => Math.Abs(x - change) < Math.Abs(y - change) ? x : y);
             if (closest > change && change < currencyAmounts[0])
             {
-                closest = currencyAmounts[currencyAmounts.FindIndex(x => x == closest) + 1];
+                var index = currencyAmounts.FindIndex(x => x == closest);
+                if (index == currencyAmounts.Count - 1)
+                {
+                    throw new Exception("Due to no smaller amount available, full change cannot be given");
+                }
+                closest = currencyAmounts[index + 1];
             }
             return closest;
         }

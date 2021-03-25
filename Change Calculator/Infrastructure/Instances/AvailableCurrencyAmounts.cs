@@ -17,7 +17,7 @@ namespace ChangeCalculator.Infrastructure.Instances
 
         private List<decimal> AvailableAmounts { get; set; } = new List<decimal>();
 
-        public AvailableCurrencyAmounts(List<decimal> availableAmounts = null, IConsole console = null, decimal minimumAmount = 0.01m)
+        public AvailableCurrencyAmounts(List<decimal> availableAmounts = null, IConsole console = null, decimal minimumAmount = 0.00m)
         {
             _minimumAmount = minimumAmount;
             _console = console ?? new LocalConsole();

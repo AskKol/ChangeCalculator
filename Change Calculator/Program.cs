@@ -28,7 +28,14 @@ namespace ChangeCalculator
             switch (_console.ReadLine())
             {
                 case MenuItem1:
-                    RunChangeCalculator();
+                    try
+                    {
+                        RunChangeCalculator();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        _console.WriteLine(ex.Message);
+                    }
 
                     return true;
 
